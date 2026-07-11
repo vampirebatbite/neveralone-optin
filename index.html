@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeverAlone — Join Someone's Circle</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FAF8F5; color: #2C1810; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: white; border-radius: 16px; padding: 40px; max-width: 480px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .logo { font-size: 22px; font-weight: 700; color: #2C1810; margin-bottom: 8px; }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
+    .subtitle { font-size: 16px; color: #666; margin-bottom: 32px; line-height: 1.6; }
+    .what-to-expect { background: #FAF8F5; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+    .what-to-expect h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #999; margin-bottom: 12px; }
+    .what-to-expect p { font-size: 15px; color: #444; line-height: 1.6; }
+    .consent-box { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 28px; padding: 16px; border: 1.5px solid #E8DDD5; border-radius: 10px; cursor: pointer; }
+    .consent-box input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; accent-color: #8B4513; }
+    .consent-box label { font-size: 14px; color: #444; line-height: 1.6; cursor: pointer; }
+    .btn { width: 100%; padding: 16px; background: #2C1810; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 20px; }
+    .btn:hover { background: #3D2318; }
+    .legal { font-size: 12px; color: #999; line-height: 1.6; text-align: center; }
+    .legal a { color: #8B4513; text-decoration: none; }
+    .legal a:hover { text-decoration: underline; }
+    .message-info { font-size: 13px; color: #888; margin-bottom: 20px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">NeverAlone</div>
+    <h1>You've been added to someone's Circle</h1>
+    <p class="subtitle">When they press their NeverAlone button, you'll receive an immediate alert by text message and phone call — so you can check on them right away.</p>
+
+    <div class="what-to-expect">
+      <h3>What to expect</h3>
+      <p>You'll receive a text message and phone call from <strong>+1 (972) 845-8118</strong> any time the button is pressed. Messages will identify who pressed the button and ask you to check on them.</p>
+    </div>
+
+    <p class="message-info">Message and data rates may apply. Message frequency varies based on button presses. Reply <strong>STOP</strong> to any message to opt out. Reply <strong>HELP</strong> for support.</p>
+
+    <div class="consent-box">
+      <input type="checkbox" id="consent">
+      <label for="consent">I agree to receive text message and phone call alerts from NeverAlone when a Circle member presses their button. I understand I can opt out at any time by replying STOP.</label>
+    </div>
+
+    <button class="btn" onclick="handleJoin()">Join Their Circle</button>
+
+    <p class="legal">By joining, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>. NeverAlone is a notification service only. Alerts confirm a message was sent — they do not guarantee a response.</p>
+  </div>
+
+  <script>
+    function handleJoin() {
+      const consent = document.getElementById('consent');
+      if (!consent.checked) {
+        alert('Please check the box to confirm you agree to receive alerts.');
+        return;
+      }
+      alert('You\'ve joined the Circle. You\'ll receive alerts when the button is pressed.');
+    }
+  </script>
+</body>
+</html>
