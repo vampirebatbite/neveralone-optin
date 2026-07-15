@@ -14,6 +14,9 @@
     .what-to-expect { background: #FAF8F5; border-radius: 12px; padding: 20px; margin-bottom: 32px; }
     .what-to-expect h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #999; margin-bottom: 12px; }
     .what-to-expect p { font-size: 15px; color: #444; line-height: 1.6; }
+    .field-label { font-size: 14px; font-weight: 600; color: #2C1810; margin-bottom: 8px; display: block; }
+    .phone-input { width: 100%; padding: 14px 16px; border: 1.5px solid #E8DDD5; border-radius: 10px; font-size: 16px; color: #2C1810; margin-bottom: 24px; outline: none; }
+    .phone-input:focus { border-color: #8B4513; }
     .consent-box { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 28px; padding: 16px; border: 1.5px solid #E8DDD5; border-radius: 10px; cursor: pointer; }
     .consent-box input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; accent-color: #8B4513; }
     .consent-box label { font-size: 14px; color: #444; line-height: 1.6; cursor: pointer; }
@@ -30,27 +33,28 @@
     <div class="logo">NeverAlone</div>
     <h1>You've been added to someone's Circle</h1>
     <p class="subtitle">When they press their NeverAlone button, you'll receive an immediate alert by text message and phone call — so you can check on them right away.</p>
-
     <div class="what-to-expect">
       <h3>What to expect</h3>
       <p>You'll receive a text message and phone call from <strong>+1 (972) 845-8118</strong> any time the button is pressed. Messages will identify who pressed the button and ask you to check on them.</p>
     </div>
-
+    <label class="field-label" for="phone">Your mobile phone number</label>
+    <input class="phone-input" type="tel" id="phone" placeholder="(555) 555-5555">
     <p class="message-info">Message and data rates may apply. Message frequency varies based on button presses. Reply <strong>STOP</strong> to any message to opt out. Reply <strong>HELP</strong> for support.</p>
-
     <div class="consent-box">
       <input type="checkbox" id="consent">
       <label for="consent">I agree to receive text message and phone call alerts from NeverAlone when a Circle member presses their button. I understand I can opt out at any time by replying STOP.</label>
     </div>
-
     <button class="btn" onclick="handleJoin()">Join Their Circle</button>
-
     <p class="legal">By joining, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>. NeverAlone is a notification service only. Alerts confirm a message was sent — they do not guarantee a response.</p>
   </div>
-
   <script>
     function handleJoin() {
+      const phone = document.getElementById('phone').value.trim();
       const consent = document.getElementById('consent');
+      if (!phone) {
+        alert('Please enter your mobile phone number.');
+        return;
+      }
       if (!consent.checked) {
         alert('Please check the box to confirm you agree to receive alerts.');
         return;
